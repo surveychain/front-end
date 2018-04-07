@@ -29,7 +29,8 @@
                 </v-card-title>
                 <v-card-actions>
                     <v-spacer/>
-                    <router-link tag="v-btn" flat color="orange" :to="'/survey/' + item.id">상세보기</router-link>
+                    <router-link tag="v-btn" flat :to="'/detail/' + item.id" color="info">결과보기</router-link>
+                    <router-link tag="v-btn" flat :to="'/survey/' + item.id" color="success">참여하기</router-link>
                 </v-card-actions>
             </v-card>
             </v-flex>

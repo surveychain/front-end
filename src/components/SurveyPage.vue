@@ -35,19 +35,19 @@
             <h3 class="headline">{{ question.title }}</h3>
            </v-card-title>
            <v-card-text>
-            <template v-for="answer in question.answer">
-              <div>
-                <v-badge class="pl-3 py-1" color="orange">
-                  <span slot="badge">{{answer.count}}</span>
-                  <span class="subheading">{{answer.title}}</span>
-                </v-badge>
-              </div>
-            </template>
+           <v-radio-group v-model="question.selected">
+            <v-radio
+              v-for="answer in question.answer"
+              :key="answer"
+              :label="answer.title"
+              :value="answer"
+            ></v-radio>
+          </v-radio-group>
            </v-card-text>
         </v-card>
       </v-flex>
       <v-flex sm8> 
-        <v-btn block color="success" @click="submit">ok</v-btn>
+        <v-btn block color="success" @click="submit">submit</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
