@@ -128,6 +128,7 @@
 
 <script>
   import appNavigationContent from './components/NavigationContent.vue'
+  import web3 from 'web3'
 
   export default {
     data (){
@@ -157,6 +158,7 @@
       },
       onCreate() {
         // alert('onCreate')
+        console.log(web3)
       }
     },
     created() {
