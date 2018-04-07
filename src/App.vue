@@ -66,6 +66,7 @@
   import appNavigationContent from './components/NavigationContent.vue'
   import appDialogContent from './components/DialogContent.vue'
   import web3 from 'web3'
+  
 
   export default {
     data (){
