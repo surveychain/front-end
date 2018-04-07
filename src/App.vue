@@ -4,37 +4,8 @@
       fixed
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
-      v-model="drawer"
-    >
-      <v-list dense>
-        <template v-for="item in items">
-          <v-layout
-            row
-            v-if="item.heading"
-            align-center
-            :key="item.heading"
-          >
-            <v-flex xs6>
-              <v-subheader v-if="item.heading">
-                {{ item.heading }}
-              </v-subheader>
-            </v-flex>
-            <v-flex xs6 class="text-xs-center">
-              <a href="#!" class="body-2 black--text">EDIT</a>
-            </v-flex>
-          </v-layout>
-          <v-list-tile v-else @click="" :key="item.text">
-            <v-list-tile-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                {{ item.text }}
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </template>
-      </v-list>
+      v-model="drawer">
+      <app-navigation-content></app-navigation-content>
     </v-navigation-drawer>
     <v-toolbar
       color="blue darken-3"
@@ -57,6 +28,18 @@
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>notifications</v-icon>
+      </v-btn>
+      <v-btn icon  @click="clickYellow">
+        <v-icon color="yellow">notifications</v-icon>
+      </v-btn>
+      <v-btn icon @click="clickRed">
+        <v-icon color="red">notifications</v-icon>
+      </v-btn>
+      <v-btn icon @click="clickBlue">
+        <v-icon color="blue">notifications</v-icon>
+      </v-btn>
+      <v-btn icon  @click="clickGreen">
+        <v-icon color="green">notifications</v-icon>
       </v-btn>
     </v-toolbar>
     <v-content>
@@ -144,20 +127,40 @@
 </template>
 
 <script>
+  import appNavigationContent from './components/NavigationContent.vue'
+
   export default {
-    data: () => ({
-      dialog: false,
-      drawer: null,
-      items: [
-        { icon: 'dashboard', text: 'Dashboard' },
-        { icon: 'face', text: 'My Survey' },
-        { icon: 'description', text: 'Active Survey' },
-        { icon: 'check_circle', text: 'Finished Survey' },
-        { icon: 'settings', text: 'Settings' }
-      ]
-    }),
+    data (){
+      return {
+        dialog: false,
+        drawer: null
+      }
+    },
+    components: {
+      appNavigationContent
+    },
     props: {
       source: String
+    },
+    methods: {
+      clickYellow() {
+        alert('yello')
+      },
+      clickRed() {
+        alert('red')
+      },
+      clickBlue() {
+        alert('blue')
+      },
+      clickGreen() {
+        alert('green')
+      },
+      onCreate() {
+        // alert('onCreate')
+      }
+    },
+    created() {
+      this.onCreate()
     }
   }
 </script>
